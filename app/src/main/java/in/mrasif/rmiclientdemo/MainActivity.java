@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void connect() {
         try{
             CallHandler callHandler = new CallHandler();
-            client = new Client("162.144.76.252", 7777, callHandler);
+            client = new Client("192.168.0.4", 7777, callHandler);
             rmiInterface = (RMIInterface) client.getGlobal(RMIInterface.class);
             isConnected=true;
             Toast.makeText(this, "RMI connected.", Toast.LENGTH_SHORT).show();

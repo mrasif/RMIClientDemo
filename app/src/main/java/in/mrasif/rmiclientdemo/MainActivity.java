@@ -76,12 +76,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void disconnect() {
-        try {
-            client.close();
-            isConnected=false;
-            Toast.makeText(this, "RMI disconnected.", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(isConnected) {
+            try {
+                client.close();
+                isConnected = false;
+                Toast.makeText(this, "RMI disconnected.", Toast.LENGTH_SHORT).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            Toast.makeText(this, "RMI already disconnected.", Toast.LENGTH_SHORT).show();
         }
     }
 
